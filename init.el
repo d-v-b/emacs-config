@@ -14,7 +14,6 @@
 (defvar myPackages
   '(better-defaults
     flycheck
-    ein
     material-theme
     elpy))
 
@@ -34,6 +33,10 @@
 (load-theme 'material t) ;; load material theme
 (global-linum-mode t) ;; enable line numbers globally
 
+;; Flycheck
+(global-flycheck-mode)
+(package-install 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -51,7 +54,7 @@
  '(custom-enabled-themes (quote (misterioso)))
  '(fci-rule-color "#37474f")
  '(hl-sexp-background-color "#1c1f26")
- '(package-selected-packages (quote (org-ednaee)))
+ '(package-selected-packages (quote (exec-path-from-shell go-mode org-ednaee)))
  '(python-shell-exec-path (quote ("")))
  '(python-shell-interpreter "/Users/bennettd/anaconda3/bin/python")
  '(vc-annotate-background nil)
