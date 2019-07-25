@@ -3,6 +3,13 @@
 ;; INSTALL PACKAGES
 ;; --------------------------------------
 
+(add-hook 'python-mode-hook
+      (lambda ()
+        (setq indent-tabs-mode nil)
+        (setq python-indent 4)
+        (setq tab-width 4))
+      (untabify (point-min) (point-max)))
+
 (require 'package)
 (add-to-list 'package-archives
        '("melpa" . "http://melpa.org/packages/") t)
@@ -13,23 +20,24 @@
 
 (defvar myPackages
   '(better-defaults
-    flycheck
-    ein
-    material-theme
-    elpy))
+   flycheck
+   material-theme
+   elpy
+   dockerfile-mode))
 
 (mapc #'(lambda (package)
     (unless (package-installed-p package)
       (package-install package)))
       myPackages)
 
-(setq shell-file-name "/bin/bash")
-(setq elpy-rpc-python-command "~/anaconda3/bin/python")
-(elpy-enable)
+;(setq shell-file-name "/bin/bash")
+;(setq elpy-rpc-python-command "~/anaconda3/bin/python")
+;(elpy-enable)
+
 
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
-
+(desktop-save-mode 1)
 (setq inhibit-startup-message t) ;; hide the startup message
 (load-theme 'material t) ;; load material theme
 (global-linum-mode t) ;; enable line numbers globally
@@ -51,7 +59,7 @@
  '(custom-enabled-themes (quote (misterioso)))
  '(fci-rule-color "#37474f")
  '(hl-sexp-background-color "#1c1f26")
- '(package-selected-packages (quote (org-ednaee)))
+ '(package-selected-packages (quote (magit org-ednaee)))
  '(python-shell-exec-path (quote ("")))
  '(python-shell-interpreter "/Users/bennettd/anaconda3/bin/python")
  '(vc-annotate-background nil)
