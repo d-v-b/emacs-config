@@ -3,6 +3,10 @@
 ;; INSTALL PACKAGES
 ;; --------------------------------------
 
+(require 'ido)
+(ido-mode t)
+
+
 (add-hook 'python-mode-hook
       (lambda ()
         (setq indent-tabs-mode nil)
